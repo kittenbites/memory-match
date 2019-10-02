@@ -56,14 +56,20 @@ aside > div{
   width: 13%;
   height: 28%;
   margin: 10px;
-  background-color: aqua;
+}
 
+
+.sql{
+  background-image: url("../images/mysql-logo.jpg");
+}
+
+.nodejs{
+  background-image: url("../images/js-logo.png");
 
 }
 
 .card_front{
   position: absolute;
-  background-image: url("../images/mysql-logo.jpg");
   height: 100%;
   width: 100%;
   background-position: center;
@@ -79,8 +85,6 @@ aside > div{
   background-size: cover;
 
 }
-
-
 
 
 .hidden{
