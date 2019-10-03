@@ -21,6 +21,8 @@ main{
   margin:0px;
   height: 100%;
   width: 75%;
+  display:flex;
+  justify-content: center;
 }
 
 aside{
@@ -51,11 +53,27 @@ aside > div{
 
 }
 
+.win_modal{
+  position:absolute;
+  height:50%;
+  width: 50%;
+  background-color:mediumspringgreen; /* Black w/ opacity */
+  align-self: center;
+  z-index: 1;
+
+}
+
+.win_modal button{
+  display: block;
+}
+
 .card_div{
   position: relative;
   width: 13%;
   height: 28%;
   margin: 10px;
+
+
 }
 
 
@@ -82,11 +100,15 @@ aside > div{
   width: 100%;
   height: 100%;
   background-position: center;
-  background-size: cover;
+  background-size: contain;
 
 }
 
 
 .hidden{
   display: none;
+}
+
+.invisible{
+  visibility: hidden;
 }
