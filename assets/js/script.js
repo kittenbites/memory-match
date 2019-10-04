@@ -1,18 +1,16 @@
 $(document).ready(initializeApp);
 
 function initializeApp(){
-
 $(".container").on("click",".card_div",handleCardClick);
-
+$(".reset").click(resetGame);
 }
 
 var firstCardClicked = null;
 var secondCardClicked = null;
 var matches = null;
-var maxMatches = 2;
+var maxMatches = 9;
 var attempts = 0;
 var games_played = 0;
-
 
 function handleCardClick(event){
   var currentCard = $(event.currentTarget);
@@ -37,7 +35,6 @@ function handleCardClick(event){
         resetCards();
       },1000)
       if(matches === maxMatches){
-        games_played++;
         displayStats();
         console.log("You won!");
         $(".modal_cover").toggleClass("hidden");
@@ -53,8 +50,6 @@ function handleCardClick(event){
   }
   }
 
-
-
 function resetCards(){
   firstCardClicked = null;
   secondCardClicked = null;
@@ -62,7 +57,20 @@ function resetCards(){
 
 function displayStats(){
   var accuracy = Math.trunc((matches/attempts)*100);
+  if(!accuracy){
+    accuracy = 0;
+  }
   $(".games_played").text(games_played);
   $(".attempts").text(attempts);
   $(".accuracy").text(accuracy+"%");
+}
+
+function resetGame(){
+  $(".card_div").toggleClass("invisible");
+  $(".card_back").toggleClass("invisible")
+  games_played++;
+  attempts = 0;
+  matches = 0;
+  displayStats();
+  $(".modal_cover").toggleClass("hidden");
 }
