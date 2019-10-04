@@ -1,6 +1,7 @@
 $(document).ready(initializeApp);
 
 function initializeApp(){
+  createCardDivs()
 $(".container").on("click",".card_div",handleCardClick);
 $(".reset").click(resetGame);
 }
@@ -8,9 +9,11 @@ $(".reset").click(resetGame);
 var firstCardClicked = null;
 var secondCardClicked = null;
 var matches = null;
-var maxMatches = 9;
+var maxMatches = 2;
 var attempts = 0;
 var games_played = 0;
+var character_class = ["kkslider","tomnook","isabelle","reese","cyrus","mabel","sable","resetti","blathers"];
+var class_array = character_class.concat(character_class);
 
 function handleCardClick(event){
   var currentCard = $(event.currentTarget);
@@ -42,6 +45,7 @@ function handleCardClick(event){
     } else {
       console.log("Try again!");
       setTimeout(function(){
+
       firstCardClicked.find(".card_back").toggleClass("invisible");
       secondCardClicked.find(".card_back").toggleClass("invisible");
       resetCards();
@@ -66,11 +70,37 @@ function displayStats(){
 }
 
 function resetGame(){
-  $(".card_div").toggleClass("invisible");
-  $(".card_back").toggleClass("invisible")
+  $(".modal_cover").toggleClass("hidden");
+  class_array = character_class.concat(character_class);
+  $(".container").empty();
+  createCardDivs();
   games_played++;
   attempts = 0;
   matches = 0;
   displayStats();
-  $(".modal_cover").toggleClass("hidden");
+
+}
+
+
+function createCardDivs(){
+  var card_array = createRandomCards();
+  for(var i = 0; i<card_array.length; i++){
+    var newCardDiv = $("<div>",{class:"card_div"});
+    newCardDiv.append(card_array[i][0], card_array[i][1]);
+    $(".container").append(newCardDiv);
+  }
+}
+
+function createRandomCards(){//Creates a matrix of cards with random character classes
+  var card = [];
+  var card_array = [];
+  var character = '';
+  for(;class_array.length;){
+    character = class_array.splice(Math.floor(Math.random()*(class_array.length)),1)
+    card.push($("<div>",{class: "card_front "+character}));
+    card.push($("<div>", { class: "card_back"}))
+    card_array.push(card);
+    card = [];
+  }
+  return card_array;
 }
