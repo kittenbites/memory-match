@@ -18,23 +18,26 @@ var class_array = character_class.concat(character_class);
 function handleCardClick(event){
   var currentCard = $(event.currentTarget);
   $(currentCard).find(".card_back").toggleClass("invisible");
+  currentCard.toggleClass("disable");
   if(!firstCardClicked){
     firstCardClicked = currentCard;
   }
   else if(!secondCardClicked){
     attempts++;
     secondCardClicked = currentCard;
+    $(".card_div").addClass("disable");
+
+    displayStats();
     var cardFront1 = firstCardClicked.find(".card_front").css("background-image");
     var cardFront2 = secondCardClicked.find(".card_front").css("background-image");
-    displayStats();
 
     if (cardFront1 === cardFront2){
-      console.log("It's a match!");
       matches++;
       displayStats();
       setTimeout(function(){
         firstCardClicked.toggleClass("invisible");
         secondCardClicked.toggleClass("invisible");
+        $(".card_div").removeClass("disable");
         resetCards();
       },1000)
       if(matches === maxMatches){
@@ -43,11 +46,12 @@ function handleCardClick(event){
         $(".modal_cover").toggleClass("hidden");
       }
     } else {
-      console.log("Try again!");
       setTimeout(function(){
-
       firstCardClicked.find(".card_back").toggleClass("invisible");
       secondCardClicked.find(".card_back").toggleClass("invisible");
+
+      $(".card_div").removeClass("disable");
+
       resetCards();
     },1500)
     }
@@ -78,11 +82,9 @@ function resetGame(){
   attempts = 0;
   matches = 0;
   displayStats();
-
 }
 
-
-function createCardDivs(){
+function createCardDivs(){//Traverses a random card matrix, creates a new card div, and appends it to the container div
   var card_array = createRandomCards();
   for(var i = 0; i<card_array.length; i++){
     var newCardDiv = $("<div>",{class:"card_div"});
