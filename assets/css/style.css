@@ -1,7 +1,8 @@
 body{
   margin: auto;
-  background-image: url("../images/lfz-background.jpg");
+  background-image: url("../images/ACBackground.png");
   background-size: cover;
+  background-position: 100% 50%;
 }
 
 header{
@@ -76,16 +77,6 @@ aside > div{
 
 }
 
-
-.sql{
-  background-image: url("../images/mysql-logo.jpg");
-}
-
-.nodejs{
-  background-image: url("../images/js-logo.png");
-
-}
-
 .card_front{
   position: absolute;
   height: 100%;
@@ -104,6 +95,41 @@ aside > div{
 
 }
 
+.kkslider{
+  background-image: url("../images/KKSlider.png");
+}
+
+.tomnook{
+  background-image: url("../images/TomNook.png");
+}
+
+.isabelle{
+  background-image: url("../images/Isabelle.png");
+}
+
+.reese{
+  background-image: url("../images/Reese.png");
+}
+
+.cyrus{
+  background-image: url("../images/Cyrus.png");
+}
+
+.resetti{
+  background-image: url("../images/Resetti.png");
+}
+
+.sable{
+  background-image: url("../images/Sable.png");
+}
+
+.mabel{
+  background-image: url("../images/Mabel.png");
+}
+
+.blathers{
+  background-image: url("../images/Blathers.png");
+}
 
 .hidden{
   display: none;
