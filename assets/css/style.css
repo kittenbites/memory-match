@@ -1,7 +1,19 @@
 body{
   margin: auto;
-  background-image: url("../images/lfz-background.jpg");
+  background-image: url("../images/ACBackground.png");
   background-size: cover;
+  background-position: 100% 50%;
+}
+
+.modal_cover{
+  position: fixed;
+  z-index: 1;
+  left:0;
+  top:0;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(255,255,255,0.5);
+  display: flex;
 }
 
 header{
@@ -21,6 +33,8 @@ main{
   margin:0px;
   height: 100%;
   width: 75%;
+  display:flex;
+  justify-content: center;
 }
 
 aside{
@@ -30,7 +44,6 @@ aside{
   width: 20%;
   flex-direction: column;
   text-align: center;
-
 }
 
 aside > div{
@@ -51,6 +64,20 @@ aside > div{
 
 }
 
+.win_modal{
+  position:absolute;
+  height:50%;
+  width: 50%;
+  background-color:mediumspringgreen;
+  align-self: center;
+  z-index: 1;
+
+}
+
+.win_modal button{
+  display: block;
+}
+
 .card_div{
   position: relative;
   width: 13%;
@@ -58,35 +85,62 @@ aside > div{
   margin: 10px;
 }
 
-
-.sql{
-  background-image: url("../images/mysql-logo.jpg");
-}
-
-.nodejs{
-  background-image: url("../images/js-logo.png");
-
-}
-
-.card_front{
+.card_front, .card_back{
   position: absolute;
   height: 100%;
   width: 100%;
   background-position: center;
   background-size: cover;
-
 }
+
   .card_back{
-  position: absolute;
   background-image: url("../images/lfz-card.jpg");
-  width: 100%;
-  height: 100%;
-  background-position: center;
-  background-size: cover;
-
 }
 
+.kkslider{
+  background-image: url("../images/KKSlider.png");
+}
+
+.tomnook{
+  background-image: url("../images/TomNook.png");
+}
+
+.isabelle{
+  background-image: url("../images/Isabelle.png");
+}
+
+.reese{
+  background-image: url("../images/Reese.png");
+}
+
+.cyrus{
+  background-image: url("../images/Cyrus.png");
+}
+
+.resetti{
+  background-image: url("../images/Resetti.png");
+}
+
+.sable{
+  background-image: url("../images/Sable.png");
+}
+
+.mabel{
+  background-image: url("../images/Mabel.png");
+}
+
+.blathers{
+  background-image: url("../images/Blathers.png");
+}
 
 .hidden{
   display: none;
+}
+
+.disable{
+  pointer-events: none;
+}
+
+.invisible{
+  visibility: hidden;
 }
