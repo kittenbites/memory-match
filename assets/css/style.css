@@ -3,6 +3,8 @@ body{
   background-image: url("../images/ACBackground.png");
   background-size: cover;
   background-position: 100% 50%;
+  height: 90vh;
+  width: 90vw;
 }
 
 .modal_cover{
@@ -57,10 +59,11 @@ aside > div{
 .container{
   display: flex;
   flex-wrap: wrap;
-  height: 100%;
+  height: 90%;
   width: 100%;
   justify-content: center;
   align-content: center;
+  align-self: flex-start;
 
 }
 
@@ -83,6 +86,7 @@ aside > div{
   width: 13%;
   height: 28%;
   margin: 10px;
+  clip-path: url(#leaf);
 }
 
 .card_front, .card_back{
@@ -94,7 +98,7 @@ aside > div{
 }
 
   .card_back{
-  background-image: url("../images/lfz-card.jpg");
+  background-image: url("../images/cardback.png");
 }
 
 .kkslider{
