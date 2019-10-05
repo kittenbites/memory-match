@@ -97,7 +97,7 @@ function createRandomCards(){//Creates a matrix of cards with random character c
   var card = [];
   var card_array = [];
   var character = '';
-  for(;class_array.length;){
+  while(class_array.length){
     character = class_array.splice(Math.floor(Math.random()*(class_array.length)),1)
     card.push($("<div>",{class: "card_front "+character}));
     card.push($("<div>", { class: "card_back"}))
