@@ -9,7 +9,7 @@ $(".reset").click(resetGame);
 var firstCardClicked = null;
 var secondCardClicked = null;
 var matches = null;
-var maxMatches = 2;
+var maxMatches = 9;
 var attempts = 0;
 var games_played = 0;
 var character_class = ["kkslider","tomnook","isabelle","reese","cyrus","mabel","sable","resetti","blathers"];
@@ -32,14 +32,15 @@ function handleCardClick(event){
     var cardFront2 = secondCardClicked.find(".card_front").css("background-image");
 
     if (cardFront1 === cardFront2){
-      matches++;
-      displayStats();
       setTimeout(function(){
         firstCardClicked.toggleClass("invisible");
         secondCardClicked.toggleClass("invisible");
         $(".card_div").removeClass("disable");
         resetCards();
-      },1000)
+      },800)
+      displayCharacter(cardFront1);
+      matches++;
+      displayStats();
       if(matches === maxMatches){
         displayStats();
         console.log("You won!");
@@ -53,7 +54,7 @@ function handleCardClick(event){
       $(".card_div").removeClass("disable");
 
       resetCards();
-    },1500)
+    },800)
     }
   }
   }
@@ -76,7 +77,9 @@ function displayStats(){
 function resetGame(){
   $(".modal_cover").toggleClass("hidden");
   class_array = character_class.concat(character_class);
-  $(".container").empty();
+  $("main").empty();
+  $("main").append($("<div>",{class:"container"}));
+  $(".container").on("click", ".card_div", handleCardClick);
   createCardDivs();
   games_played++;
   attempts = 0;
@@ -105,4 +108,14 @@ function createRandomCards(){//Creates a matrix of cards with random character c
     card = [];
   }
   return card_array;
+}
+
+function displayCharacter(character){
+  var baseLeft = 55,
+      baseTop = 42,
+      newLeft = baseLeft + 14*matches;
+  var characterImg = character.slice(character.lastIndexOf("/")+1, character.lastIndexOf(".png"))+"match.png";
+  var imgPath = "assets/images/" + characterImg;
+  var newImg = $("<img>",{src:imgPath, css:{top:baseTop+"vmin",left:newLeft+"vmin"}});
+  $("main").append(newImg);
 }
