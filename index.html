@@ -11,16 +11,22 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body>
-  <header>Memory Match</header>
+<body scroll="no">
+  <header>Animal Crossing Memory Match</header>
   <div class="wrapper">
     <aside>STATS
-      <div>Games Played</div>
-      <div class="games_played">0</div>
-      <div>Attempts</div>
-      <div class="attempts">0</div>
-      <div>Accuracy</div>
-      <div class="accuracy">0</div>
+      <div class="statscontainer">
+        <div>Games Played</div>
+        <div class="games_played">0</div>
+      </div>
+      <div class="statscontainer">
+        <div>Attempts</div>
+        <div class="attempts">0</div>
+      </div>
+      <div class="statscontainer">
+        <div>Accuracy</div>
+        <div class="accuracy">0%</div>
+      </div>
     </aside>
     <main>
       <div class="container">
@@ -30,7 +36,7 @@
   <div class="modal_cover hidden">
     <div class="win_modal">
       You Won!
-      <button class="reset">Reset</button>
+      <button class="reset">Play Again?</button>
     </div>
   </div>
 </body>
