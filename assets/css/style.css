@@ -160,6 +160,10 @@ aside{
   clip-path: url(#leaf);
 }
 
+.card_div:hover{
+  transform: scale(1.2,1.2);
+  transition: 200ms;
+}
 .card_front, .card_back{
   position: absolute;
   height: 100%;
