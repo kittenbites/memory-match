@@ -20,5 +20,7 @@ Try the application live at <https://memorymatch.samcnagle.com>
 - User can see a running tally of how many games they have played
 
 ## Preview
-![alt text][preview]
-[preview]: ./memorymatch.gif "Animal Crossing memory match preview"
+
+<img src="memorymatch.gif"
+     alt="Memory Match preview"/>
+
