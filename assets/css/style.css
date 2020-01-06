@@ -9,13 +9,14 @@
 }
 
 body{
-  margin: auto;
+  user-select: none;
+  margin: 0;
   background-image: url("../images/ACBackground.png");
   background-size: cover;
-  background-position: 100% 50%;
-  height: 90vmin;
+  background-repeat: no-repeat;
   width:225vmin;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .modal_cover{
@@ -46,8 +47,7 @@ header{
 }
 
 .wrapper{
-  height:100vmin;
-  margin: 3vmin;
+  height:100%;
   display: flex;
 }
 
@@ -66,8 +66,8 @@ main img{
 
 aside{
   display:flex;
-  margin: 0px 20px;
-  height: 100vmin;
+  margin: 0px 10px;
+  height: 100vh;
   width: 40vmin;
   flex-direction: column;
   text-align: center;
@@ -78,8 +78,8 @@ aside{
 
 .statscontainer{
   font-family: Humming;
-  padding:2vmin 1vmin;
-  margin: 2vmin;
+  padding:4% 13%;
+  margin: 7% 6%;
   background-image:url("../images/statbox.png");
   background-size: cover;
   color:rgb(255,255,255);
@@ -88,22 +88,20 @@ aside{
 
 .statscontainer :nth-child(odd){
   position:relative;
-  bottom: 1vmin;
+  bottom: 3%;
   color: rgb(20, 85, 28);
-
 }
 
 .games_played, .attempts, .accuracy{
   position: relative;
-  top: 1vmin;
+  top: 3%;
 }
 
 .container{
-  top:5vmin;
   display: flex;
   flex-wrap: wrap;
-  height: 65vmin;
-  width: 140vmin;
+  height: 90%;
+  width: 100%;
   justify-content: center;
   align-content: center;
   align-self: flex-start;
@@ -156,8 +154,9 @@ aside{
   position: relative;
   width: 13%;
   height: 28%;
-  margin: 2vmin;
+  margin: 1%;
   clip-path: url(#leaf);
+  cursor:pointer;
 }
 
 .card_div:hover{
