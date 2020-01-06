@@ -1,10 +1,11 @@
 $(document).ready(initializeApp);
 
 function initializeApp(){
+  displayRotateModal();
   createCardDivs()
 $(".container").on("click",".card-div",handleCardClick);
-$(".reset").click(resetGame);
-$(window).resize(()=>console.log("window resize"));
+$("#reset-button").click(resetGame);
+$(window).resize(displayRotateModal);
 }
 
 var firstCardClicked = null;
@@ -16,10 +17,23 @@ var gamesPlayed = 0;
 var characterClass = ["kkslider","tomnook","isabelle","reese","cyrus","mabel","sable","resetti","blathers"];
 var classArray = characterClass.concat(characterClass);
 
+function displayRotateModal(){
+  let modalCover = $('.modal-cover');
+    if ($(window).width() / $(window).height() < 1.333) {
+      modalCover.removeClass("hidden").addClass("opaque-black");
+      $("#reset-button").addClass("hidden");
+      $(".modal-text").text("Please rotate your device");
+    } else{
+      modalCover.addClass("hidden").removeClass("opaque-black");
+      $("#reset-button").removeClass("hidden");
+      $(".modal-text").text("You Won!");
+    }
+}
+
 function handleCardClick(event){
   var currentCard = $(event.currentTarget);
-  $(currentCard).find(".card-back").toggleClass("invisible");
-  currentCard.toggleClass("disable");
+  $(currentCard).find(".card-back").addClass("invisible");
+  currentCard.addClass("disable");
   if(!firstCardClicked){
     firstCardClicked = currentCard;
   }
@@ -34,8 +48,8 @@ function handleCardClick(event){
 
     if (cardFront1 === cardFront2){
       setTimeout(function(){
-        firstCardClicked.toggleClass("invisible");
-        secondCardClicked.toggleClass("invisible");
+        firstCardClicked.addClass("invisible");
+        secondCardClicked.addClass("invisible");
         $(".card-div").removeClass("disable");
         resetCards();
       },800)
@@ -44,13 +58,12 @@ function handleCardClick(event){
       displayStats();
       if(matches === maxMatches){
         displayStats();
-        console.log("You won!");
-        $(".modal-cover").toggleClass("hidden");
+        $(".modal-cover").removeClass("hidden");
       }
     } else {
       setTimeout(function(){
-      firstCardClicked.find(".card-back").toggleClass("invisible");
-      secondCardClicked.find(".card-back").toggleClass("invisible");
+      firstCardClicked.find(".card-back").removeClass("invisible");
+      secondCardClicked.find(".card-back").removeClass("invisible");
 
       $(".card-div").removeClass("disable");
 
@@ -76,7 +89,7 @@ function displayStats(){
 }
 
 function resetGame(){
-  $(".modal_cover").toggleClass("hidden");
+  $(".modal-cover").addClass("hidden");
   classArray = characterClass.concat(characterClass);
   $("main").empty();
   $("main").append($("<div>",{class:"container"}));
@@ -89,26 +102,26 @@ function resetGame(){
 }
 
 function createCardDivs(){//Traverses a random card matrix, creates a new card div, and appends it to the container div
-  var card_array = createRandomCards();
-  for(var i = 0; i<card_array.length; i++){
+  var cardArray = createRandomCards();
+  for(var i = 0; i<cardArray.length; i++){
     var newCardDiv = $("<div>",{class:"card-div"});
-    newCardDiv.append(card_array[i][0], card_array[i][1]);
+    newCardDiv.append(cardArray[i][0], cardArray[i][1]);
     $(".container").append(newCardDiv);
   }
 }
 
 function createRandomCards(){//Creates a matrix of cards with random character classes
   var card = [];
-  var card_array = [];
+  var cardArray = [];
   var character = '';
   while(classArray.length){
     character = classArray.splice(Math.floor(Math.random()*(classArray.length)),1)
     card.push($("<div>",{class: "card-front "+character}));
     card.push($("<div>", { class: "card-back"}))
-    card_array.push(card);
+    cardArray.push(card);
     card = [];
   }
-  return card_array;
+  return cardArray;
 }
 
 function displayCharacter(character){
