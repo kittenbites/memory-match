@@ -20,7 +20,8 @@ var classArray = characterClass.concat(characterClass);
 
 function displayRotateModal(){
   let modalCover = $('.modal-cover');
-    if ($(window).width() / $(window).height() < 1.333) {
+  let ratio = $(window).width() / $(window).height();
+    if (ratio < 1.33|| ratio > 2.2) {
       modalCover.removeClass("hidden").addClass("opaque-black");
       $("#reset-button").addClass("hidden");
       $(".modal-text").text("Please rotate your device");
