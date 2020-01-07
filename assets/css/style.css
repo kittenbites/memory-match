@@ -14,7 +14,6 @@ body{
   background-image: url("../images/ACBackground.png");
   background-size: cover;
   background-repeat: no-repeat;
-  width:225vmin;
   overflow: hidden;
   box-sizing: border-box;
 }
@@ -32,8 +31,6 @@ body{
 
 header{
   font-family: Fink;
-  height: 10vmin;
-  font-size: 10vmin;
   text-align: center;
   margin: 10px;
   color: rgb(250,201,58);
@@ -75,7 +72,6 @@ aside{
 
 .stats-header{
   font-family:Fink;
-  font-size: 8vmin;
   -webkit-text-stroke-width: .066em #268a16;
   text-shadow: .1em .1em 0  #268a16,
    -.033em -.033em 0  #268a16,
@@ -86,16 +82,16 @@ aside{
 
 .stats-container{
   font-family: Humming;
-  padding:4% 13%;
-  margin: 7% 6%;
+  padding:5% 13% 12% 13%;
+  margin: 5% 6%;
   background-image:url("../images/statbox.png");
-  background-size: cover;
-  font-size: 2.7vmin;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .stats-container :nth-child(odd){
   position:relative;
-  bottom: 3%;
+  bottom: 5%;
   color: rgb(20, 85, 28);
 }
 
@@ -138,14 +134,14 @@ aside{
 
 .win-modal button{
   font-family: Humming, sans-serif;
-  font-size: .5em;
   box-shadow: 3px 4px 0px 0px #caefab;
 	background:linear-gradient(to bottom, #9ee65f 5%, #5cb811 100%);
 	background-color:#9ee65f;
 	border-radius:2em;
 	border:1px solid #268a16;
 	cursor:pointer;
-	color:#ffffff;
+  color:#ffffff;
+  margin-top:7%;
 	padding:7px 25px;
 	text-shadow:0px 1px 0px #506141;
 }
@@ -238,4 +234,22 @@ aside{
 
 .opaque-black{
   background-color: rgb(0,0,0);
+}
+
+.header-lg{
+  font-size: 4em;
+}
+
+  .body-lg{
+  font-size: 1em;
+}
+
+@media screen and (max-width: 850px){
+  .header-sm{
+    font-size: 2em;
+  }
+
+  .body-sm{
+    font-size: .5em;
+  }
 }

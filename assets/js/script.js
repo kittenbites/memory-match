@@ -14,6 +14,7 @@ var matches = null;
 var maxMatches = 9;
 var attempts = 0;
 var gamesPlayed = 0;
+var gameComplete = false;
 var characterClass = ["kkslider","tomnook","isabelle","reese","cyrus","mabel","sable","resetti","blathers"];
 var classArray = characterClass.concat(characterClass);
 
@@ -23,10 +24,15 @@ function displayRotateModal(){
       modalCover.removeClass("hidden").addClass("opaque-black");
       $("#reset-button").addClass("hidden");
       $(".modal-text").text("Please rotate your device");
-    } else{
+    } else if(!gameComplete){
       modalCover.addClass("hidden").removeClass("opaque-black");
       $("#reset-button").removeClass("hidden");
       $(".modal-text").text("You Won!");
+    } else{
+      modalCover.removeClass("hidden").removeClass("opaque-black");
+      $("#reset-button").removeClass("hidden");
+      $(".modal-text").text("You Won!");
+
     }
 }
 
@@ -58,6 +64,7 @@ function handleCardClick(event){
       displayStats();
       if(matches === maxMatches){
         displayStats();
+        gameComplete = true;
         $(".modal-cover").removeClass("hidden");
       }
     } else {
@@ -98,6 +105,7 @@ function resetGame(){
   gamesPlayed++;
   attempts = 0;
   matches = 0;
+  gameComplete = false;
   displayStats();
 }
 
