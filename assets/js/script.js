@@ -65,6 +65,7 @@ function handleCardClick(event){
       displayStats();
       if(matches === maxMatches){
         displayStats();
+        $('.card-div').removeClass('invisible').addClass('disable');
         gameComplete = true;
         $(".modal-cover").removeClass("hidden");
       }
