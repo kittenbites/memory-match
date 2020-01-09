@@ -21,10 +21,15 @@ var classArray = characterClass.concat(characterClass);
 function displayRotateModal(){
   let modalCover = $('.modal-cover');
   let ratio = $(window).width() / $(window).height();
-    if (ratio < 1.33|| ratio > 2.2) {
+    if (ratio < 1.33|| ratio > 3.2) {
+      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        $(".modal-text").text("Please rotate your device");
+      } else{
+        $(".modal-text").text("Please resize your screen to continue");
+      }
       modalCover.removeClass("hidden").addClass("opaque-black");
       $("#reset-button").addClass("hidden");
-      $(".modal-text").text("Please rotate your device");
+
     } else if(!gameComplete){
       modalCover.addClass("hidden").removeClass("opaque-black");
       $("#reset-button").removeClass("hidden");
@@ -65,6 +70,7 @@ function handleCardClick(event){
       displayStats();
       if(matches === maxMatches){
         displayStats();
+        $('.card-div').removeClass('invisible').addClass('disable');
         gameComplete = true;
         $(".modal-cover").removeClass("hidden");
       }
