@@ -91,13 +91,13 @@ aside{
 
 .stats-container :nth-child(odd){
   position:relative;
-  bottom: 5%;
+  bottom: .6vh;
   color: rgb(20, 85, 28);
 }
 
 .games-played, .attempts, .accuracy{
   position: relative;
-  top: 3%;
+  top: .4vh;
 }
 
 .container{
@@ -126,7 +126,7 @@ aside{
 
 .modal-text{
   font-size: 8vmin;
-  line-height: 7vmin;
+  line-height: 9vmin;
   font-family: Humming;
   color:rgb(20, 85, 28);
   text-align: center;
@@ -236,49 +236,10 @@ aside{
   background-color: rgb(0,0,0);
 }
 
-.header-xl{
-  font-size: 5em;
+.header-text{
+  font-size: calc(1.5rem + 2.5vw);
 }
 
-.body-xl{
-  font-size: 1.5em;
-}
-
-@media screen and (max-width: 1475px){
-.header-lg{
-  font-size: 4em;
-}
-
-  .body-lg{
-  font-size: 1em;
-}}
-
-@media screen and (max-width: 1000px){
-  .header-md{
-    font-size: 2em;
-  }
-
-  .body-md{
-    font-size: .7em;
-  }
-}
-
-@media screen and (max-width: 700px){
-  .header-sm{
-    font-size: 1.7em;
-  }
-
-  .body-sm{
-    font-size: .5em;
-  }
-}
-
-@media screen and (max-width: 500px){
-  .header-xs{
-    font-size: 1.5em;
-  }
-
-  .body-xs{
-    font-size: .3em;
-  }
+.body-text{
+  font-size: calc(.3rem + .7vw);
 }
